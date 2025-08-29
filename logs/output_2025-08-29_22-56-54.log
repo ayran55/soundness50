@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Log klasörünü oluştur (yoksa)
+mkdir -p logs
+
+# Tarih-saatli log dosyası adı
+LOGFILE="logs/output_$(date +%F_%H-%M-%S).log"
+
+# Otomatik çalışacak komut (burayı istediğin komutla değiştirebilirsin)
+KOMUT="node index.js"
+
+echo "▶️ Çalıştırılıyor: $KOMUT"
+$KOMUT | tee -a "$LOGFILE"
+
+# Git işlemleri
+git add logs/ key_store.json README.md
+git commit -m "Auto-save: $(date +%F_%H-%M-%S)"
+git push origin main
+
+echo "✅ İşlem tamamlandı. Log dosyası: $LOGFILE"
+#!/bin/bash
+
+# Log klasörünü oluştur (yoksa)
+mkdir -p logs
+
+# Tarih-saatli log dosyası adı
+LOGFILE="logs/output_$(date +%F_%H-%M-%S).log"
+
+# Otomatik çalışacak komut (burayı istediğin komutla değiştirebilirsin)
+KOMUT="node index.js"
+
+echo "▶️ Çalıştırılıyor: $KOMUT"
+$KOMUT | tee -a "$LOGFILE"
+
+# Git işlemleri
+git add logs/ key_store.json README.md
+git commit -m "Auto-save: $(date +%F_%H-%M-%S)"
+git push origin main
+
+echo "✅ İşlem tamamlandı. Log dosyası: $LOGFILE"
